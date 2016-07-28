@@ -68,18 +68,21 @@
   copy: src=default.conf dest=/etc/php7/fpm/pool.d/default.conf
   become: yes
 
+- name: Check for systemd
+  command: systemctl --version
+  register: systemctl_version
+  ignore_errors: yes
+
 - name: Add php-fpm.service
   copy: src=php-fpm.service.conf dest=/lib/systemd/system/php7-fpm.service mode=0644
   become: yes
+  when: systemctl_version.rc == 0
 
-- name: systemd reload
-  command: systemctl daemon-reload
+- name: Add php-fpm.init
+  copy: src=php-fpm.init.conf dest=/etc/init.d/php7-fpm mode="a+x"
   become: yes
+  when: systemctl_version.rc != 0
 
-- name: enable php-fpm.service
-  command: systemctl enable php7-fpm
-  become: yes
-
-- name: start php-fpm
-  command: systemctl reload-or-restart php7-fpm
+- name: Enable and reload service
+  service: name=php7-fpm enabled=yes state=reloaded
   become: yes
