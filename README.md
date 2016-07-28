@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-php7-fpm.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-php7-fpm)
+
 php7-fpm
 =========
 
