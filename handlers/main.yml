@@ -1,0 +1,5 @@
+---
+
+- name: restart_munin_node
+  action: service name=munin-node state=restarted
+  become: yes

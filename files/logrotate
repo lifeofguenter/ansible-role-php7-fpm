@@ -1,0 +1,13 @@
+/var/log/php7-fpm/*.log /var/www/*/logs/phperror.log /var/www/*/logs/slow.log {
+  rotate 7
+  daily
+  missingok
+  notifempty
+  compress
+  delaycompress
+  nocreate
+  sharedscripts
+  postrotate
+    [ ! -f /run/php7-fpm.pid ] || kill -USR1 `cat /run/php7-fpm.pid`
+  endscript
+}

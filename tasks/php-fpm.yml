@@ -1,0 +1,85 @@
+---
+
+- name: Install dependencies
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
+  with_items:
+    - libssl1.0.0
+    - libicu52
+    - libxml2
+    - libbz2-1.0
+    - libcurl3
+    - libwebp5
+    - libpng12-0
+    - libxpm4
+    - libfreetype6
+    - libmcrypt4
+    - libedit2
+    - libreadline6
+    - libxslt1.1
+    - make
+    - gcc
+    - pkg-config
+    - automake
+    - autoconf
+  become: yes
+
+- name: Include Debian specifics
+  include: packages-debian.yml
+  when: ansible_distribution == 'Debian'
+
+- name: Include Ubuntu specifics
+  include: packages-ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Fetch .deb
+  get_url: url=https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-fpm_{{ php7_version }}_amd64.deb dest=/tmp/php7.0-fpm_{{ php7_version }}_amd64.deb
+
+- name: Install .deb
+  apt: deb=/tmp/php7.0-fpm_{{ php7_version }}_amd64.deb
+  become: yes
+
+- name: Create folders
+  file: state=directory mode=0755 recurse=yes path={{ item }}
+  with_items:
+  - /etc/php7/fpm/conf.d
+  - /etc/php7/fpm/pool.d
+  - /var/www
+  - /var/log/php7-fpm
+  become: yes
+
+- name: Create log folder
+  file: state=directory mode=0755 recurse=yes path={{ php7fpm_error_log | dirname }}
+  when: php7fpm_error_log is defined
+  become: yes
+
+- name: Create php.ini
+  template: src=php.ini.j2 dest=/etc/php7/fpm/php.ini mode=0644
+  become: yes
+
+- name: Add logrotate config
+  copy: src=logrotate dest=/etc/logrotate.d/php7-fpm mode=0644
+  become: yes
+
+- name: Add fpm config
+  template: src=php-fpm.conf.j2 dest=/etc/php7/fpm/fpm.conf
+  become: yes
+
+- name: Add default fpm pool
+  copy: src=default.conf dest=/etc/php7/fpm/pool.d/default.conf
+  become: yes
+
+- name: Add php-fpm.service
+  copy: src=php-fpm.service.conf dest=/lib/systemd/system/php7-fpm.service mode=0644
+  become: yes
+
+- name: systemd reload
+  command: systemctl daemon-reload
+  become: yes
+
+- name: enable php-fpm.service
+  command: systemctl enable php7-fpm
+  become: yes
+
+- name: start php-fpm
+  command: systemctl reload-or-restart php7-fpm
+  become: yes

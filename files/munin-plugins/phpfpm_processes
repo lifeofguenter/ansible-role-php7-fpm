@@ -1,0 +1,53 @@
+#!/bin/bash
+# -*- sh -*-
+#
+# Plugin to monitor the number of PHP5-FPM processes on the machine.
+#
+# Copyright TJ Stein 2010 http://constantshift.com
+#
+# Parameters:
+#
+# config (required)
+# autoconf (optional - used by munin-config)
+#
+# Magick markers (optional - used by munin-config and som installation
+# scripts):
+#%# family=manual
+#%# capabilities=autoconf
+
+PHP_BIN=${phpbin-"php-fpm"}
+
+if [[ "${1}" == "autoconf" ]]; then
+  echo yes
+  exit 0
+fi
+
+if [[ "${1}" == "config" ]]; then
+  echo 'graph_title PHP5-FPM Processes'
+  echo 'graph_args --base 1000 -l 0 '
+  echo 'graph_vlabel PHP5-FPM Processes'
+  echo 'graph_category PHP'
+  echo 'graph_info This graph shows the number of PHP5-FPM processes in the system.'
+
+  ps awwwux | grep "php-fpm: pool " | grep -v grep | tr -s ' ' | cut -d ' ' -f 13 | sort | uniq |
+  while read -r pool_name; do
+    echo "${pool_name}.label ${pool_name}"
+  done
+  exit 0
+fi
+
+last_name=''
+last_num=0
+ps awwwux | grep "php-fpm: pool " | grep -v grep | tr -s ' ' | cut -d ' ' -f 13 | (sort ; echo) |
+while read -r pool_name; do
+  if [[ "${last_name}" != "${pool_name}" ]]; then
+    if [[ "${last_num}" -gt "0" ]]; then
+      echo "${last_name}.value ${last_num}"
+    fi
+
+    last_name=${pool_name}
+    last_num=0
+  fi
+
+  last_num=$((last_num + 1))
+done

@@ -1,0 +1,18 @@
+---
+
+- name: Copy plugins
+  copy: src=munin-plugins/{{ item }} dest=/usr/share/munin/plugins/{{ item }} mode="a+x"
+  with_items:
+    - phpfpm_average
+    - phpfpm_memory
+    - phpfpm_processes
+  become: yes
+
+- name: Add plugins
+  file: src=/usr/share/munin/plugins/{{ item }} dest=/etc/munin/plugins/{{ item }} state=link
+  with_items:
+    - phpfpm_average
+    - phpfpm_memory
+    - phpfpm_processes
+  notify: restart_munin_node
+  become: yes
