@@ -1,7 +1,7 @@
 ---
 - name: Get php-fpm version
   command: /opt/php7/sbin/php-fpm --version
-  register: php_current
+  register: php7_current
   ignore_errors: yes
 
 - set_fact: php7_real_version="{{ php7_version | regex_replace('-\\d+$', '') }}"
