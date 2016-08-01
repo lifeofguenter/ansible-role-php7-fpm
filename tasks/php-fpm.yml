@@ -16,11 +16,6 @@
     - libedit2
     - libreadline6
     - libxslt1.1
-    - make
-    - gcc
-    - pkg-config
-    - automake
-    - autoconf
   become: yes
 
 - name: Include Debian specifics

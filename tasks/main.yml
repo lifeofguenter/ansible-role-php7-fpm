@@ -18,3 +18,13 @@
 #- name: Configure munin plugin
 #  include: munin-plugin.yml
 #  when: dpkg_munin_node_check.rc == 0
+
+- include: ext-apcu.yml
+
+- include: ext-imagick.yml
+
+- include: ext-igbinary.yml
+
+- include: ext-memcached.yml
+
+- include: ext-redis.yml

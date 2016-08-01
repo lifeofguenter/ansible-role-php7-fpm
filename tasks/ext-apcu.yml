@@ -1,0 +1,8 @@
+---
+
+- name: Fetch apcu .deb
+  get_url: url=https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-apcu_{{ php7_ext_apcu_version }}_amd64.deb dest=/tmp/php7.0-apcu_{{ php7_ext_apcu_version }}_amd64.deb
+
+- name: Install apcu .deb
+  apt: deb=/tmp/php7.0-apcu_{{ php7_ext_apcu_version }}_amd64.deb
+  become: yes
