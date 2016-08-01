@@ -3,9 +3,9 @@
 ;;;;;;;;;;;;;;;;;;;;;
 
 [global]
-pid = /run/php-fpm.pid
-{% if php7cli_error_log is defined %}
-error_log = "{{ php7cli_error_log }}"
+pid = /run/php7-fpm.pid
+{% if php7fpm_error_log is defined %}
+error_log = "{{ php7fpm_error_log }}"
 {% endif %}
 log_level = warning
 
