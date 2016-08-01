@@ -1,6 +1,6 @@
 [PHP]
 ; default open-basedir
-open_basedir = "{{ php7_conf_open_basedir }}:/tmp/:/usr/lib/php/"
+open_basedir = "{{ php7fpm_conf_open_basedir }}:/tmp/:/usr/lib/php/"
 
 disable_functions = exec, show_source, system, shell_exec, passthru, popen, proc_open, proc_nice, symlink, dl
 
