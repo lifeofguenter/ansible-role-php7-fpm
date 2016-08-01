@@ -61,7 +61,7 @@ mysqlnd.collect_memory_statistics = Off
 session.gc_maxlifetime = 2592000
 
 ; OPCACHE
-zend_extension=/usr/lib/php/extensions/no-debug-non-zts-20131226/opcache.so
+zend_extension=/opt/php7/lib/php/extensions/no-debug-non-zts-20151012/opcache.so
 opcache.memory_consumption=256
 opcache.interned_strings_buffer=16
 opcache.max_accelerated_files=10000
@@ -71,10 +71,11 @@ opcache.enable_cli=1
 opcache.use_cwd=1
 
 ; EXTENSION SECTION
-;extension=igbinary.so
 extension=apcu.so
-extension=memcached.so
 extension=imagick.so
+extension=igbinary.so
+extension=memcached.so
+extension=redis.so
 
 ;apc.serializer=igbinary
 apc.shm_size=512M

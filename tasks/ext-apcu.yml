@@ -6,3 +6,4 @@
 - name: Install apcu .deb
   apt: deb=/tmp/php7.0-apcu_{{ php7_ext_apcu_version }}_amd64.deb
   become: yes
+  notify: restart_php7_fpm

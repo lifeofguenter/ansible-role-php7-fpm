@@ -16,3 +16,4 @@
 - name: Install memcached .deb
   apt: deb=/tmp/php7.0-memcached_{{ php7_ext_memcached_version }}_amd64.deb
   become: yes
+  notify: restart_php7_fpm

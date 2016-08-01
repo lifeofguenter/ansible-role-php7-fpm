@@ -32,6 +32,7 @@
 - name: Install .deb
   apt: deb=/tmp/php7.0-fpm_{{ php7_version }}_amd64.deb
   become: yes
+  notify: restart_php7_fpm
 
 - name: Create folders
   file: state=directory mode=0755 recurse=yes path={{ item }}
@@ -50,18 +51,22 @@
 - name: Create php.ini
   template: src=php.ini.j2 dest=/etc/php7/fpm/php.ini mode=0644
   become: yes
+  notify: restart_php7_fpm
 
 - name: Add logrotate config
   copy: src=logrotate dest=/etc/logrotate.d/php7-fpm mode=0644
   become: yes
+  notify: restart_php7_fpm
 
 - name: Add fpm config
   template: src=php-fpm.conf.j2 dest=/etc/php7/fpm/fpm.conf
   become: yes
+  notify: restart_php7_fpm
 
 - name: Add default fpm pool
   copy: src=default.conf dest=/etc/php7/fpm/pool.d/default.conf
   become: yes
+  notify: restart_php7_fpm
 
 - name: Check for systemd
   command: systemctl --version
@@ -72,12 +77,10 @@
   copy: src=php-fpm.service.conf dest=/lib/systemd/system/php7-fpm.service mode=0644
   become: yes
   when: systemctl_version.rc == 0
+  notify: restart_php7_fpm
 
 - name: Add php-fpm.init
   copy: src=php-fpm.init.conf dest=/etc/init.d/php7-fpm mode="a+x"
   become: yes
   when: systemctl_version.rc != 0
-
-- name: Enable and reload service
-  service: name=php7-fpm enabled=yes state=reloaded
-  become: yes
+  notify: restart_php7_fpm
