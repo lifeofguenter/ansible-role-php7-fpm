@@ -1,7 +1,7 @@
 ---
 
 - name: Install libmagickwand
-  apt: name=libmagickwand-6-headers state=present update_cache=yes cache_valid_time=3600
+  apt: name=libmagickwand-6.q16-2 state=present update_cache=yes cache_valid_time=3600
   become: yes
   when: ansible_distribution == 'Debian'
 

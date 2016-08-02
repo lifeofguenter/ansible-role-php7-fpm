@@ -3,6 +3,7 @@
 - name: Install dependencies
   apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
   with_items:
+    - libltdl7
     - libssl1.0.0
     - libicu52
     - libxml2
