@@ -4,6 +4,12 @@ php7fpm_error_log: /var/log/php7-fpm/error.log
 
 php7fpm_conf_open_basedir: /var/www/
 
+php7fpm_conf_memory_limit: 256M
+
+php7fpm_conf_opcache.memory_consumption: 256
+
+php7fpm_conf_apc.shm_size: 256M
+
 php7fpm_version: 7.0.9-15
 
 php7fpm_ext_apcu_version: 5.1.5-15

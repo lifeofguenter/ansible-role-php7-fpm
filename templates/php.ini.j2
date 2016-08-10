@@ -43,7 +43,7 @@ zlib.output_compression_level = 9
 
 max_execution_time = 60
 max_input_time = 60
-memory_limit = 256M
+memory_limit = {{ php7fpm_conf_memory_limit }}
 
 cgi.fix_pathinfo=1
 
@@ -61,22 +61,20 @@ mysqlnd.collect_memory_statistics = Off
 session.gc_maxlifetime = 2592000
 
 ; OPCACHE
-zend_extension=/opt/php7/lib/php/extensions/no-debug-non-zts-20151012/opcache.so
-opcache.memory_consumption=256
-opcache.interned_strings_buffer=16
-opcache.max_accelerated_files=10000
-opcache.revalidate_freq=60
-opcache.fast_shutdown=1
-opcache.enable_cli=1
-opcache.use_cwd=1
+zend_extension = /opt/php7/lib/php/extensions/no-debug-non-zts-20151012/opcache.so
+opcache.memory_consumption = {{ php7fpm_conf_opcache.memory_consumption }}
+opcache.interned_strings_buffer = 16
+opcache.max_accelerated_files = 10000
+opcache.revalidate_freq = 10
+opcache.fast_shutdown = 1
+opcache.enable_cli = 1
+opcache.use_cwd = 1
 
 ; EXTENSION SECTION
-extension=apcu.so
-extension=imagick.so
-extension=igbinary.so
-extension=memcached.so
-extension=redis.so
+extension = igbinary.so
+extension = apcu.so
+extension = imagick.so
+extension = memcached.so
+extension = redis.so
 
-;apc.serializer=igbinary
-apc.shm_size=512M
-;memcached.serializer=igbinary
+apc.shm_size = {{ php7fpm_conf_apc.shm_size }}
