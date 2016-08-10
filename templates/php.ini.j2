@@ -62,7 +62,7 @@ session.gc_maxlifetime = 2592000
 
 ; OPCACHE
 zend_extension = /opt/php7/lib/php/extensions/no-debug-non-zts-20151012/opcache.so
-opcache.memory_consumption = {{ php7fpm_conf_opcache.memory_consumption }}
+opcache.memory_consumption = {{ php7fpm_conf_opcache_memory_consumption }}
 opcache.interned_strings_buffer = 16
 opcache.max_accelerated_files = 10000
 opcache.revalidate_freq = 10
@@ -77,4 +77,4 @@ extension = imagick.so
 extension = memcached.so
 extension = redis.so
 
-apc.shm_size = {{ php7fpm_conf_apc.shm_size }}
+apc.shm_size = {{ php7fpm_conf_apc_shm_size }}

@@ -6,9 +6,9 @@ php7fpm_conf_open_basedir: /var/www/
 
 php7fpm_conf_memory_limit: 256M
 
-php7fpm_conf_opcache.memory_consumption: 256
+php7fpm_conf_opcache_memory_consumption: 256
 
-php7fpm_conf_apc.shm_size: 256M
+php7fpm_conf_apc_shm_size: 256M
 
 php7fpm_version: 7.0.9-15
 
