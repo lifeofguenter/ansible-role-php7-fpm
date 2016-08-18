@@ -47,6 +47,11 @@
   when: systemctl_version.rc == 0
   notify: restart_php7_fpm
 
+- name: Reload systemd
+  command: systemctl daemon-reload
+  when: systemctl_version.rc == 0
+  become: yes
+
 - name: Add php-fpm.init
   copy: src=php-fpm.init.conf dest=/etc/init.d/php7-fpm mode="a+x"
   become: yes
