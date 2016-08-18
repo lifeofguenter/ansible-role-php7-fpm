@@ -1,8 +1,10 @@
 ---
 
 - name: Create folders
-  file: state=directory mode=0755 recurse=yes path={{ item }}
+  file: state=directory mode=0755 recurse=no path={{ item }}
   with_items:
+  - /etc/php7
+  - /etc/php7/fpm
   - /etc/php7/fpm/conf.d
   - /etc/php7/fpm/pool.d
   - /var/www
