@@ -19,6 +19,8 @@
 #  include: munin-plugin.yml
 #  when: dpkg_munin_node_check.rc == 0
 
+- include: config.yml
+
 - include: ext-apcu.yml
 
 - include: ext-imagick.yml
