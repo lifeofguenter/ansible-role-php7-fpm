@@ -1,4 +1,4 @@
-/var/log/php7-fpm/*.log /var/www/logs/php7fpm-error.log /var/www/logs/php7fpm-slow.log /var/www/*/logs/phperror.log /var/www/*/logs/slow.log {
+/var/log/php7-fpm/*.log /var/www/logs/php7fpm-error.log /var/www/logs/php7fpm-slow.log /var/www/*/logs/php7-error.log /var/www/*/logs/php7-slow.log {
   rotate 7
   daily
   missingok
