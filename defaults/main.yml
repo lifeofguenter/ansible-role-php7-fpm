@@ -2,8 +2,6 @@
 
 php7fpm_error_log: /var/log/php7-fpm/error.log
 
-php7fpm_conf_open_basedir: /var/www/
-
 php7fpm_conf_memory_limit: 256M
 
 php7fpm_conf_opcache_memory_consumption: 256

@@ -5,5 +5,5 @@
   become: yes
 
 - name: restart_php7_fpm
-  service: name=php7-fpm enabled=yes state=reloaded
+  service: name=php7-fpm enabled=yes state=restarted
   become: yes
