@@ -24,8 +24,8 @@ install:
 script:
   - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
   - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
-  - /opt/php7/sbin/php-fpm --version
-  - /opt/php7/sbin/php-fpm -m
+  - /usr/sbin/php-fpm --version
+  - /usr/sbin/php-fpm -m
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

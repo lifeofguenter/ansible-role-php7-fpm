@@ -1,0 +1,10 @@
+---
+
+- name: replace default locations with php7
+  file:
+    src: /opt/php7/sbin/php-fpm
+    dest: /usr/sbin/php-fpm
+    owner: root
+    group: root
+    state: link
+  become: yes

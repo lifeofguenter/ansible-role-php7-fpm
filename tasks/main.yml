@@ -27,6 +27,7 @@
 
 - include: ext-igbinary.yml
 
-- include: ext-memcached.yml
-
 - include: ext-redis.yml
+
+- include: default.yml
+  when: php7fpm_default | default(true) | bool

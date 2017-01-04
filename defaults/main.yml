@@ -1,5 +1,7 @@
 ---
 
+php7fpm_default: true
+
 php7fpm_error_log: /var/log/php7-fpm/error.log
 
 php7fpm_conf_memory_limit: 256M
@@ -8,14 +10,12 @@ php7fpm_conf_opcache_memory_consumption: 256
 
 php7fpm_conf_apc_shm_size: 256M
 
-php7fpm_version: 7.0.13-20
+php7fpm_version: 7.0.14-21
 
-php7fpm_ext_apcu_version: 5.1.7-20
+php7fpm_ext_apcu_version: 5.1.7-21
 
-php7fpm_ext_imagick_version: 3.4.3RC1-20
+php7fpm_ext_imagick_version: 3.4.3RC1-21
 
-php7fpm_ext_igbinary_version: 1.2.2b-20
+php7fpm_ext_igbinary_version: 2.0.1-21
 
-php7fpm_ext_memcached_version: 3.0.0b-20
-
-php7fpm_ext_redis_version: 3.0.0-20
+php7fpm_ext_redis_version: 3.1.0-21
