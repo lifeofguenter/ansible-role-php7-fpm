@@ -23,14 +23,14 @@ exit 0
 fi
 
 if [ "$1" = "config" ]; then
-echo 'graph_title PHP5-FPM Average Process Size'
+echo 'graph_title PHP7-FPM Average Process Size'
 echo 'graph_args --base 1024 -l 0 '
-echo 'graph_vlabel PHP5-FPM Average Process Size'
+echo 'graph_vlabel PHP7-FPM Average Process Size'
 echo 'graph_category PHP'
-echo 'graph_info This graph shows the average process size for PHP5-FPM'
-echo 'php_average.label PHP5-FPM Average Proccess Size'
+echo 'graph_info This graph shows the average process size for PHP7-FPM'
+echo 'php_average.label PHP7-FPM Average Proccess Size'
 echo 'php_average.draw LINE2'
-echo 'php_average.info The average process size for PHP5-FPM'
+echo 'php_average.info The average process size for PHP7-FPM'
 exit 0
 fi
 
