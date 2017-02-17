@@ -1,0 +1,38 @@
+---
+
+- name: install libmemcached (debian)
+  apt:
+    name: libmemcached11
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  when: ansible_distribution == 'Debian'
+
+- name: install libmemcached (ubuntu trusty)
+  apt:
+    name: libmemcached10
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: install libmemcachedutil
+  apt:
+    name: libmemcachedutil2
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: fetch memcached .deb
+  get_url:
+    url: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
+    dest: /tmp/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
+
+- name: install memcached .deb
+  apt:
+    deb: /tmp/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
+  become: yes
+  notify: restart_php7_fpm

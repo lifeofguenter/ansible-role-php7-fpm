@@ -31,5 +31,7 @@
 
 - include: ext-iredis.yml
 
+- include: ext-memcached.yml
+
 - include: default.yml
   when: php7fpm_default | default(true) | bool
