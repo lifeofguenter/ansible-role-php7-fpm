@@ -28,11 +28,11 @@
 
 - name: fetch memcached .deb
   get_url:
-    url: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
-    dest: /tmp/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
+    url: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-memcached_{{ php7fpm_ext_memcached_version }}_amd64.deb
+    dest: /tmp/php7.0-memcached_{{ php7fpm_ext_memcached_version }}_amd64.deb
 
 - name: install memcached .deb
   apt:
-    deb: /tmp/php7.0-memcached_{{ php7cli_ext_memcached_version }}_amd64.deb
+    deb: /tmp/php7.0-memcached_{{ php7fpm_ext_memcached_version }}_amd64.deb
   become: yes
   notify: restart_php7_fpm
