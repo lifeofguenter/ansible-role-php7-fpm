@@ -1,4 +1,5 @@
 ---
+
 - name: Get php-fpm version
   command: /opt/php7/sbin/php-fpm --version
   register: php7fpm_current
