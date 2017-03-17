@@ -10,16 +10,16 @@ php7fpm_conf_opcache_memory_consumption: 256
 
 php7fpm_conf_apc_shm_size: 256M
 
-php7fpm_version: 7.0.16-24
+php7fpm_version: 7.0.17-25
 
-php7fpm_ext_apcu_version: 5.1.8-24
+php7fpm_ext_apcu_version: 5.1.8-25
 
-php7fpm_ext_imagick_version: 3.4.3-24
+php7fpm_ext_imagick_version: 3.4.3-25
 
-php7fpm_ext_igbinary_version: 2.0.1-24
+php7fpm_ext_igbinary_version: 2.0.1-25
 
-php7fpm_ext_redis_version: 3.1.1-24
+php7fpm_ext_redis_version: 3.1.1-25
 
-php7fpm_ext_iredis_version: 1.0.0-24
+php7fpm_ext_iredis_version: 1.0.0-25
 
-php7fpm_ext_memcached_version: 3.0.2-24
+php7fpm_ext_memcached_version: 3.0.3-25
