@@ -1,15 +1,13 @@
 ---
 
-- name: Get php-fpm version
+- name: get php-fpm version
   command: /opt/php7/sbin/php-fpm --version
   register: php7fpm_current
   ignore_errors: yes
 
-- set_fact: php7fpm_real_version="{{ php7fpm_version | regex_replace('-\\d+$', '') }}"
-
-- name: Install php-cli
+- name: install php-cli
   include: php-fpm.yml
-  when: php7fpm_current.rc != 0 or php7fpm_current.stdout.find("PHP {{ php7fpm_real_version }} (fpm-fcgi)") == -1
+  when: php7fpm_current.rc != 0 or not php7fpm_current.stdout | search(php7fpm_version_string_match)
 
 #- name: Check if munin-node is installed
 #  command: dpkg -L munin-node
