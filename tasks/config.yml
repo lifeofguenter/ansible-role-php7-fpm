@@ -17,7 +17,7 @@
   become: yes
 
 - name: Create php.ini
-  template: src=php.ini.j2 dest=/etc/php7/fpm/php.ini mode=0644
+  template: src=php.ini dest=/etc/php7/fpm/php.ini mode=0644
   become: yes
   notify: restart_php7_fpm
 
@@ -27,7 +27,7 @@
   notify: restart_php7_fpm
 
 - name: Add fpm config
-  template: src=php-fpm.conf.j2 dest=/etc/php7/fpm/fpm.conf
+  template: src=php-fpm.conf dest=/etc/php7/fpm/fpm.conf
   become: yes
   notify: restart_php7_fpm
 
