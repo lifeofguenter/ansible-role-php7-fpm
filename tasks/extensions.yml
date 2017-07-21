@@ -1,0 +1,14 @@
+---
+
+- name: install extensions
+  apt:
+    deb: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-{{ item }}_amd64.deb
+  with_items:
+    - apcu_{{ php7cli_ext_apcu_version }}
+    - imagick_{{ php7cli_ext_imagick_version }}
+    - igbinary_{{ php7cli_ext_igbinary_version }}
+    - redis_{{ php7cli_ext_redis_version }}
+    - iredis_{{ php7cli_ext_iredis_version }}
+    - memcached_{{ php7cli_ext_memcached_version }}
+  become: yes
+  notify: restart_php7_fpm

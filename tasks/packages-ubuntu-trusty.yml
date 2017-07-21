@@ -1,0 +1,29 @@
+---
+
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - libltdl7
+    - libssl1.0.0
+    - libicu52
+    - libxml2
+    - libbz2-1.0
+    - libcurl3
+    - libwebp5
+    - libpng12-0
+    - libfreetype6
+    - libmcrypt4
+    - libedit2
+    - libreadline6
+    - libxslt1.1
+    - libjpeg-turbo8
+    - libzip2
+    - libmagickwand5
+    - libhiredis0.10
+    - libmemcached10
+    - libmemcachedutil2
+  become: yes

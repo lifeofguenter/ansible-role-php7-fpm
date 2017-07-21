@@ -1,29 +1,5 @@
 ---
 
-- name: Install dependencies
-  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
-  with_items:
-    - libltdl7
-    - libssl1.0.0
-    - libicu52
-    - libxml2
-    - libbz2-1.0
-    - libcurl3
-    - libwebp5
-    - libpng12-0
-    - libfreetype6
-    - libmcrypt4
-    - libxslt1.1
-  become: yes
-
-- name: Include Debian specifics
-  include: packages-debian.yml
-  when: ansible_distribution == 'Debian'
-
-- name: Include Ubuntu specifics
-  include: packages-ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
-
 - name: Fetch .deb
   get_url: url=https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-fpm_{{ php7fpm_version }}_amd64.deb dest=/tmp/php7.0-fpm_{{ php7fpm_version }}_amd64.deb
 

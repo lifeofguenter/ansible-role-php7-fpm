@@ -1,5 +1,8 @@
 ---
 
+- name: install dependencies
+  include: packages-{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}.yml
+
 - name: get php-fpm version
   command: /opt/php7/sbin/php-fpm --version
   register: php7fpm_current
@@ -20,17 +23,7 @@
 
 - include: config.yml
 
-- include: ext-apcu.yml
-
-- include: ext-imagick.yml
-
-- include: ext-igbinary.yml
-
-- include: ext-redis.yml
-
-- include: ext-iredis.yml
-
-- include: ext-memcached.yml
+- include: extensions.yml
 
 - include: default.yml
   when: php7fpm_default | default(true) | bool

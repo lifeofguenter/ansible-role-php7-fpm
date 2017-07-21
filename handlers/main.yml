@@ -1,9 +1,14 @@
 ---
 
 - name: restart_munin_node
-  service: name=munin-node state=restarted
+  service:
+    name: munin-node
+    state: restarted
   become: yes
 
 - name: restart_php7_fpm
-  service: name=php7-fpm enabled=yes state=restarted
+  service:
+    name: php7-fpm
+    state: restarted
+    enabled: yes
   become: yes
