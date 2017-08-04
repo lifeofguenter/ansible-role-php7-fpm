@@ -12,6 +12,9 @@ addons:
     - python-pip
 
 install:
+  # http://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
+  pip install urllib3[secure]
+
   # Install ansible
   - pip install ansible
 
