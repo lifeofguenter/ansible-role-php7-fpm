@@ -9,16 +9,17 @@ dist: trusty
 addons:
   apt:
     packages:
-    - python-pip
+    - python-setuptools
 
 install:
+  - sudo -H easy_install pip
   # http://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
-  - pip install urllib3[secure]
+  - sudo -H pip install urllib3[secure]
   # https://github.com/ansible/ansible/issues/23642#issuecomment-297469043
-  - pip install ndg-httpsclient
+  - sudo -H pip install ndg-httpsclient
 
   # Install ansible
-  - pip install ansible
+  - sudo -H pip install ansible
 
   # Check ansible version
   - ansible --version
