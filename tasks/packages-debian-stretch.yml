@@ -22,7 +22,7 @@
     - libreadline7
     - libxslt1.1
     - libjpeg62-turbo
-    - libzip2
+    - libzip4
     - libmagickwand-6.q16-3
     - libhiredis0.13
     - libmemcached11
