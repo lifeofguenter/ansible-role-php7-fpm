@@ -1,7 +1,7 @@
 ---
 
 - name: install dependencies
-  include: packages-{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}.yml
+  include_tasks: packages-{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}.yml
 
 - name: get php-fpm version
   command: /opt/php7/sbin/php-fpm --version
@@ -9,7 +9,7 @@
   ignore_errors: yes
 
 - name: install php-cli
-  include: php-fpm.yml
+  include_tasks: php-fpm.yml
   when: php7fpm_current.rc != 0 or not php7fpm_current.stdout | search(php7fpm_version_string_match)
 
 #- name: Check if munin-node is installed
@@ -18,12 +18,12 @@
 #  ignore_errors: yes
 #
 #- name: Configure munin plugin
-#  include: munin-plugin.yml
+#  include_tasks: munin-plugin.yml
 #  when: dpkg_munin_node_check.rc == 0
 
-- include: config.yml
+- include_tasks: config.yml
 
-- include: extensions.yml
+- include_tasks: extensions.yml
 
-- include: default.yml
+- include_tasks: default.yml
   when: php7fpm_default | default(true) | bool
