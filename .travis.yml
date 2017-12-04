@@ -33,6 +33,7 @@ script:
   - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
   - /usr/sbin/php-fpm --version
   - /usr/sbin/php-fpm -m
+  - cat /etc/php71/fpm/fpm.conf
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
