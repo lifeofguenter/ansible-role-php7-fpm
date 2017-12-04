@@ -27,3 +27,7 @@ php7fpm_ext_memcached_version: 3.0.4-3
 php7fpm_ext_libsodium_version: 2.0.10-3
 
 php7fpm_libsodium_version: 1.0.15-1
+
+php7fpm_rlimit_files: 8192
+
+php7fpm_rlimit_core: 0

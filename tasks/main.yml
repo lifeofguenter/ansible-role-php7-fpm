@@ -4,7 +4,7 @@
   include_tasks: packages-{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}.yml
 
 - name: get php-fpm version
-  command: /opt/php7/sbin/php-fpm --version
+  command: /opt/php71/sbin/php-fpm --version
   register: php7fpm_current
   ignore_errors: yes
 
