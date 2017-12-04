@@ -1,9 +1,7 @@
 ---
 
-- name: Fetch .deb
-  get_url: url=https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-fpm_{{ php7fpm_version }}_amd64.deb dest=/tmp/php7.0-fpm_{{ php7fpm_version }}_amd64.deb
-
-- name: Install .deb
-  apt: deb=/tmp/php7.0-fpm_{{ php7fpm_version }}_amd64.deb
+- name: install .deb
+  apt:
+    deb: "{{ php7fpm_download_url }}"
   become: yes
   notify: restart_php7_fpm

@@ -4,3 +4,7 @@
 php7fpm_real_version: "{{ php7fpm_version | regex_replace('-\\d+$', '') }}"
 
 php7fpm_version_string_match: "PHP {{ php7fpm_real_version }} \\(fpm-fcgi\\)"
+
+php7fpm_majorminor_version: "{{ php7fpm_real_version.split('.')[0] }}.{{ php7fpm_real_version.split('.')[1] }}"
+
+php7fpm_download_url: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php{{ php7fpm_majorminor_version }}/php{{ php7fpm_majorminor_version }}-fpm_{{ php7fpm_version }}_amd64.deb

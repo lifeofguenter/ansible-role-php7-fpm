@@ -26,4 +26,6 @@
     - libhiredis0.10
     - libmemcached10
     - libmemcachedutil2
+    - libc-client2007e
+    - libkrb5-3
   become: yes
