@@ -1,9 +1,15 @@
 ---
 
+- name: install libsodium
+  apt:
+    deb: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/libsodium18_{{ php7fpm_libsodium_version }}_amd64.deb
+  become: yes
+
 - name: install extensions
   apt:
-    deb: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php7.0-{{ item }}_amd64.deb
+    deb: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/php{{ php7fpm_majorminor_version }}/php{{ php7fpm_majorminor_version }}-{{ item }}_amd64.deb
   with_items:
+    - libsodium_{{ php7fpm_ext_libsodium_version }}
     - apcu_{{ php7fpm_ext_apcu_version }}
     - imagick_{{ php7fpm_ext_imagick_version }}
     - igbinary_{{ php7fpm_ext_igbinary_version }}
