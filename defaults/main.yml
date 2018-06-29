@@ -2,23 +2,23 @@
 
 php7fpm_default: true
 
-php7fpm_version: 7.1.19-10
+php7fpm_version: 7.1.19-11
 
-php7fpm_ext_apcu_version: 5.1.11-10
+php7fpm_ext_apcu_version: 5.1.11-11
 
-php7fpm_ext_imagick_version: 3.4.3-10
+php7fpm_ext_imagick_version: 3.4.3-11
 
-php7fpm_ext_igbinary_version: 2.0.7-10
+php7fpm_ext_igbinary_version: 2.0.7-11
 
-php7fpm_ext_redis_version: 3.1.6-10
+php7fpm_ext_redis_version: 3.1.6-11
 
-php7fpm_ext_iredis_version: 1.0.0-10
+php7fpm_ext_iredis_version: 1.0.0-11
 
-php7fpm_ext_memcached_version: 3.0.4-10
+php7fpm_ext_memcached_version: 3.0.4-11
 
-php7fpm_ext_libsodium_version: 2.0.11-10
+php7fpm_ext_libsodium_version: 2.0.11-11
 
-php7fpm_libsodium_version: 1.0.16-2
+php7fpm_libsodium_version: 1.0.16-3
 
 php7fpm_conf_memory_limit: 256M
 
