@@ -9,8 +9,8 @@
   ignore_errors: yes
 
 - name: install php-cli
-  include_tasks: php-fpm.yml
-  when: php7fpm_current.rc != 0 or not php7fpm_current.stdout | search(php7fpm_version_string_match)
+  import_tasks: php-fpm.yml
+  when: php7fpm_current.rc != 0 or not php7fpm_current.stdout is search(php7fpm_version_string_match)
 
 #- name: Check if munin-node is installed
 #  command: dpkg -L munin-node
@@ -21,9 +21,9 @@
 #  include_tasks: munin-plugin.yml
 #  when: dpkg_munin_node_check.rc == 0
 
-- include_tasks: config.yml
+- import_tasks: config.yml
 
-- include_tasks: extensions.yml
+- import_tasks: extensions.yml
 
-- include_tasks: default.yml
+- import_tasks: default.yml
   when: php7fpm_default | default(true) | bool

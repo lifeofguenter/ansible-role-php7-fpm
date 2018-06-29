@@ -2,10 +2,10 @@
 
 galaxy_info:
   author: Gunter Grodotzki
-  description: Installs PHP7 (fpm)
-  company: weheartwebsites UG
+  description: Installs PHP7.1 (fpm)
+  company: 9JKH (Pty) Ltd.
   license: MIT
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
   - name: Ubuntu
     versions:
