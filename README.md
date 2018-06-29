@@ -37,7 +37,7 @@ php7fpm_ext_memcached_version: 3.0.4-10
 
 php7fpm_ext_libsodium_version: 2.0.11-10
 
-php7fpm_libsodium_version: 1.0.16-2
+php7fpm_libsodium_version: 1.0.16-3
 
 php7fpm_conf_memory_limit: 256M
 
