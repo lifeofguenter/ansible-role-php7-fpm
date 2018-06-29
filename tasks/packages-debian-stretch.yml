@@ -1,5 +1,20 @@
 ---
-  
+
+- name: add backports
+  apt_repository:
+    repo: deb http://ftp.debian.org/debian stretch-backports main non-free contrib
+    state: present
+  become: yes
+
+- name: install libsodium
+  apt:
+    name: libsodium23
+    default_release: stretch-backports
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
 - name: install dependencies
   apt:
     name: "{{ item }}"
@@ -29,8 +44,4 @@
     - libmemcachedutil2
     - libc-client2007e
     - libkrb5-3
-  become: yes
-
-# https://bugs.php.net/bug.php?id=74125
-- command: ln -sf /usr/include/x86_64-linux-gnu/curl /usr/include/curl
   become: yes

@@ -1,5 +1,10 @@
 ---
 
+- name: install libsodium
+  apt:
+    deb: https://ftp.weheartwebsites.de/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/libsodium18_{{ php7fpm_libsodium_version }}_amd64.deb
+  become: yes
+
 - name: install dependencies
   apt:
     name: "{{ item }}"
