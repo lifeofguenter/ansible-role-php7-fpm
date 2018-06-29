@@ -4,13 +4,13 @@
 
 This role will install PHP7.1 (cli) from custom built deb packages.
 
-__Please note: this is simply meant as a interim to have PHP7.1 on the flavours:
+_Please note: this is simply meant as a interim to have PHP7.1 on the flavours:
 debian jessie/stretch + ubuntu trusty/xenial. The packages are compiled from
 source with no additional patches, so production ready, but please keep updated
-and scrutinise it before using.__
+and scrutinise it before using._
 
-__Deb-packages are pre-generated with `checkinstall` just to avoid compiling from
-scratch during each ansible run.__
+_Deb-packages are pre-generated with `checkinstall` just to avoid compiling from
+scratch during each ansible run._
 
 ## Requirements
 
