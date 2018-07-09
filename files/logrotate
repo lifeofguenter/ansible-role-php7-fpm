@@ -8,6 +8,6 @@
   nocreate
   sharedscripts
   postrotate
-    [ ! -f /run/php71-fpm.pid ] || kill -USR1 `cat /run/php71-fpm.pid`
+    [ ! -f /run/php7.1-fpm.pid ] || kill -USR1 `cat /run/php7.1-fpm.pid`
   endscript
 }
