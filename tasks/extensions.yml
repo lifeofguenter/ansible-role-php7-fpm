@@ -6,10 +6,12 @@
   with_items:
     - libsodium_{{ php7fpm_ext_libsodium_version }}
     - apcu_{{ php7fpm_ext_apcu_version }}
+    - apcu-bc_{{ php7fpm_ext_apcu_bc_version }}
     - imagick_{{ php7fpm_ext_imagick_version }}
     - igbinary_{{ php7fpm_ext_igbinary_version }}
     - redis_{{ php7fpm_ext_redis_version }}
     - iredis_{{ php7fpm_ext_iredis_version }}
     - memcached_{{ php7fpm_ext_memcached_version }}
+    - geoip_{{ php7fpm_ext_geoip_version }}
   become: yes
   notify: restart_php7_fpm
