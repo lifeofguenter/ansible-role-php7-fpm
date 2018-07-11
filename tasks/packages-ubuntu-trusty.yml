@@ -33,4 +33,5 @@
     - libmemcachedutil2
     - libc-client2007e
     - libkrb5-3
+    - libgmp10
   become: yes
