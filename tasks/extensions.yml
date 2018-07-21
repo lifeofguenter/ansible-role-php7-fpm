@@ -13,5 +13,6 @@
     - iredis_{{ php7fpm_ext_iredis_version }}
     - memcached_{{ php7fpm_ext_memcached_version }}
     - geoip_{{ php7fpm_ext_geoip_version }}
+    - mailparse_{{ php7fpm_ext_mailparse_version }}
   become: yes
   notify: restart_php7_fpm
