@@ -14,5 +14,6 @@
     - memcached_{{ php7fpm_ext_memcached_version }}
     - geoip_{{ php7fpm_ext_geoip_version }}
     - mailparse_{{ php7fpm_ext_mailparse_version }}
+    - gnupg_{{ php7fpm_ext_gnupg_version }}
   become: yes
   notify: restart_php7_fpm

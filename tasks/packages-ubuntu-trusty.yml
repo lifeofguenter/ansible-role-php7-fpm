@@ -34,4 +34,5 @@
     - libc-client2007e
     - libkrb5-3
     - libgmp10
+    - libgpgme11
   become: yes
