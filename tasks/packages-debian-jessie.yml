@@ -9,6 +9,15 @@
     - deb http://ftp.debian.org/debian jessie-backports-sloppy main non-free contrib
   become: yes
 
+- name: install libgeoip1
+  apt:
+    name: libgeoip1
+    default_release: jessie-backports
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
 - name: install libsodium
   apt:
     name: libsodium18
