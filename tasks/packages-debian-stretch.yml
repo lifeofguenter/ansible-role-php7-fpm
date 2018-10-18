@@ -17,34 +17,35 @@
 
 - name: install dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-    - libsystemd0
-    - libltdl7
-    - libssl1.1
-    - libicu57
-    - libxml2
-    - libbz2-1.0
-    - libcurl3
-    - libwebp6
-    - libpng16-16
-    - libfreetype6
-    - libmcrypt4
-    - libedit2
-    - libreadline7
-    - libxslt1.1
-    - libjpeg62-turbo
-    - libzip4
-    - libmagickwand-6.q16-3
-    - libhiredis0.13
-    - libmemcached11
-    - libmemcachedutil2
-    - libc-client2007e
-    - libkrb5-3
-    - libgmp10
-    - libgeoip1
-    - libgpgme11
+  vars:
+    packages:
+      - libsystemd0
+      - libltdl7
+      - libssl1.1
+      - libicu57
+      - libxml2
+      - libbz2-1.0
+      - libcurl3
+      - libwebp6
+      - libpng16-16
+      - libfreetype6
+      - libmcrypt4
+      - libedit2
+      - libreadline7
+      - libxslt1.1
+      - libjpeg62-turbo
+      - libzip4
+      - libmagickwand-6.q16-3
+      - libhiredis0.13
+      - libmemcached11
+      - libmemcachedutil2
+      - libc-client2007e
+      - libkrb5-3
+      - libgmp10
+      - libgeoip1
+      - libgpgme11
   become: yes
