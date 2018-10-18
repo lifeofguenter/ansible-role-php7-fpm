@@ -5,11 +5,6 @@ python: "2.7"
 sudo: required
 dist: trusty
 
-branches:
-  only:
-    - master
-    - /^\d+\.\d+\.\d+$/
-
 # Install ansible
 addons:
   apt:
