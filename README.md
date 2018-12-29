@@ -2,7 +2,7 @@
 
 # lifeofguenter.php7-fpm
 
-This role will install PHP7.1 (cli) from custom built deb packages.
+This role will install PHP7.2 (cli) from custom built deb packages.
 
 _Please note: this is simply meant as a interim to have PHP7.1 on the flavours:
 debian jessie/stretch + ubuntu trusty/xenial. The packages are compiled from
@@ -11,6 +11,15 @@ and scrutinise it before using._
 
 _Deb-packages are pre-generated with `checkinstall` just to avoid compiling from
 scratch during each ansible run._
+
+## Versions
+
+Use tag/version pinning to achieve your goal:
+
+| Version | PHP | Latest | Status     |
+| ------- | --- | ------ | ---------- |
+| 2.x.x   | 7.2 | 7.2.13 | active     |
+| 1.x.x   | 7.1 | 7.1.25 | deprecated |
 
 ## Requirements
 
