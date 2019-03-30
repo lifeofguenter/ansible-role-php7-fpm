@@ -2,29 +2,29 @@
 
 php7fpm_default: true
 
-php7fpm_version: 7.1.26-22
+php7fpm_version: 7.1.27-23
 
-php7fpm_ext_apcu_version: 5.1.16-22
+php7fpm_ext_apcu_version: 5.1.17-23
 
-php7fpm_ext_apcu_bc_version: 1.0.4-22
+php7fpm_ext_apcu_bc_version: 1.0.5-23
 
-php7fpm_ext_imagick_version: 3.4.3-22
+php7fpm_ext_imagick_version: 3.4.3-23
 
-php7fpm_ext_igbinary_version: 2.0.8-22
+php7fpm_ext_igbinary_version: 2.0.8-23
 
-php7fpm_ext_redis_version: 3.1.6-22
+php7fpm_ext_redis_version: 3.1.6-23
 
-php7fpm_ext_iredis_version: 1.0.0-22
+php7fpm_ext_iredis_version: 1.0.0-23
 
-php7fpm_ext_memcached_version: 3.0.4-22
+php7fpm_ext_memcached_version: 3.0.4-23
 
-php7fpm_ext_libsodium_version: 2.0.20-22
+php7fpm_ext_libsodium_version: 2.0.21-23
 
-php7fpm_ext_geoip_version: 1.1.1-22
+php7fpm_ext_geoip_version: 1.1.1-23
 
-php7fpm_ext_mailparse_version: 3.0.2-22
+php7fpm_ext_mailparse_version: 3.0.3-23
 
-php7fpm_ext_gnupg_version: 1.4.0-22
+php7fpm_ext_gnupg_version: 1.4.0-23
 
 php7fpm_libsodium_version: 1.0.16-3
 
